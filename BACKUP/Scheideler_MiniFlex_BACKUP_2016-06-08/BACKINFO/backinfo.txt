@@ -1,0 +1,91 @@
+#
+# Generated backup file, do not edit.
+#
+# Originally at: F:/Scheideler_MiniFlex_BACKUP_2016-06-08
+# 16-06-08  06:31:35
+#
+>>SYSTEM_ID:
+140-102896
+
+>>PRODUCTS_ID:
+RobotWare Version: 5.61.2008.02
+
+  RW Control module key
+  RobotWare OS and English
+  644-2 German
+  709-x DeviceNet
+  709-1 DeviceNet m/s
+  840-2 PROFIBUS Fieldbus Adapter
+  608-1 World Zones
+  611-1 Path Recovery
+  616-1 PC Interface
+  617-1 FlexPendant Interface
+  623-1 Multitasking
+  RW Drive module 1 key
+  ABB standard manipulator
+  IRB 140
+  140T-6/0.8
+  Drive System 09 120/140/1400/260
+  No additional drive
+
+>>ROBOT_TYPE:
+140T-6/0.8
+
+>>HOME:
+All public files and directories
+
+>>SYSPAR:
+SYS.cfg
+PROC.cfg
+EIO.cfg
+SIO.cfg
+MOC.cfg
+MMC.cfg
+
+
+>>TASK1: (T_ROB1,,)
+PROGMOD\ModCam2.mod @ modcam2.mod
+SYSMOD\user.sys @ user.sys
+PROGMOD\MainModule.mod @ mainmodule.mod
+SYSMOD\PvMcSys.sys @ pvmcsys.sys
+PROGMOD\ModCam1.mod @ modcam1.mod
+SYSMOD\Common.sys @ common.sys
+SYSMOD\Global.sys @ global.sys
+
+>>TASK2: (PvCom,,)
+SYSMOD\user.sys @ user.sys
+PROGMOD\PvCom.mod @ pvcom.mod
+SYSMOD\Global.sys @ global.sys
+
+>>TASK3: (EntryControl,,)
+SYSMOD\user.sys @ user.sys
+PROGMOD\EntryControl.mod @ entrycontrol.mod
+SYSMOD\Global.sys @ global.sys
+
+>>TASK4: (EntryControlLamp,,)
+SYSMOD\user.sys @ user.sys
+PROGMOD\EntryControlLamp.mod @ entrycontrollamp.mod
+SYSMOD\Global.sys @ global.sys
+
+>>TASK5: (MachineSignals,,)
+PROGMOD\MachineSignals.mod @ machinesignals.mod
+SYSMOD\user.sys @ user.sys
+SYSMOD\Global.sys @ global.sys
+
+>>TASK6: (AF,,)
+PROGMOD\MainAF.mod @ mainaf.mod
+SYSMOD\user.sys @ user.sys
+SYSMOD\Global.sys @ global.sys
+
+>>TASK7: (Sender,,)
+SYSMOD\user.sys @ user.sys
+PROGMOD\Sender.mod @ sender.mod
+SYSMOD\Global.sys @ global.sys
+
+>>TASK8: (Collector,,)
+SYSMOD\user.sys @ user.sys
+PROGMOD\Collector.mod @ collector.mod
+SYSMOD\Global.sys @ global.sys
+
+
+>>EOF:

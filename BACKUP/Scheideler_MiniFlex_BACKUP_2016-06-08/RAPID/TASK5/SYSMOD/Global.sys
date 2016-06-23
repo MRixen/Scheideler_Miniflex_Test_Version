@@ -1,0 +1,29 @@
+MODULE Global(SYSMODULE,NOSTEPIN)
+    RECORD DIAGNOSE_COMMANDS
+        string LOG;
+        string MACHINE_DATA;
+        string GET_CYCLETIME;
+        string RESET_CYCLTIME;
+        string GET_ARTICLE;
+    ENDRECORD
+	    PERS DIAGNOSE_COMMANDS DiagnoseCommands:=["1","2","3","4","5"];
+		
+	PERS string sendbuffer{25}:=["","","","","","","","","","",
+								 "","","","","","","","","","",
+								 "","","","",""];
+    PERS bool bufferState{25}:=[FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,
+								FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,
+								FALSE,FALSE,FALSE,FALSE,FALSE];
+								
+	! Change global varibles to local
+	
+    PERS BOOL connectedToServer:=FALSE;
+    PERS BOOL clientNameAlreadySend:=FALSE;
+    PERS BOOL isSending:=TRUE;
+	PERS string actualProgName := "BlechLinks";
+	 PERS string robSpeed := "7000";
+	 PERS bool allDataIsSend:=FALSE;
+	 PERS string loggingMsg:="Program start executed";
+	 
+
+ENDMODULE

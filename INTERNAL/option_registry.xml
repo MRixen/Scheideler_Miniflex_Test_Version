@@ -1,0 +1,4 @@
+<?xml version = "1.0" encoding="utf-8" ?>
+<option_registry xmlns="urn:abb-robotics-registry-option">
+<entry option="gtpuSDK" path="C:/PROGRAM FILES (X86)/ABB INDUSTRIAL IT/ROBOTICS IT/MEDIAPOOL/ROBOTWARE_5.61.4009/options/gtpusdk"/>
+</option_registry>
