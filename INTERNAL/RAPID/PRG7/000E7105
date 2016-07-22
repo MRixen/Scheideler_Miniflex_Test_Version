@@ -1,0 +1,31 @@
+MODULE Global(SYSMODULE,NOSTEPIN)
+    RECORD DIAGNOSE_COMMANDS
+        string LOG;
+        string MACHINE_DATA;
+        string GET_CYCLETIME;
+        string RESET_CYCLETIME;
+        string GET_ARTICLE;
+    ENDRECORD
+	    PERS DIAGNOSE_COMMANDS DiagnoseCommands:=["1","2","3","4","5"];
+		
+	PERS string sendbuffer{25}:=[":i:2::2015;",":i:3::KW 42;",":i:4::?;",":i:5::140-102896;",":i:6::ROBOTWARE_5.61.4009.04;",":i:7::140T-6/0.8;",":i:8::VC;",":i:9::VC;",":i:10::de;",":i:11::7000;",
+								 ":i:12::100;",":i:13::0;",":i:5::140-102896;",":i:6::ROBOTWARE_5.61.4009.04;",":i:7::140T-6/0.8;",":i:8::VC;",":i:9::VC;",":i:10::de;",":i:11::7000;",":i:12::100;",
+								 ":i:13::0;",":c:0::500::500::5.4::0;",":i:0::Miniflex mit Anyfeeder;",":i:1::20154/15243;",""];
+    PERS bool bufferState{25}:=[TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,
+								TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,
+								TRUE,TRUE,TRUE,TRUE,FALSE];
+								
+	! Change global varibles to local
+	
+    PERS BOOL connectedToServer:=FALSE;
+    PERS BOOL clientNameAlreadySend:=FALSE;
+    PERS BOOL isSending:=TRUE;
+	PERS string actualProgName := "-1";
+	PERS string actualProgId := "-1";
+	PERS string actualProgNumber := "-1";
+	 PERS string robSpeed := "-1";
+	 PERS bool allDataIsSend:=FALSE;
+	 PERS string loggingMsg:="-1";
+	 
+
+ENDMODULE

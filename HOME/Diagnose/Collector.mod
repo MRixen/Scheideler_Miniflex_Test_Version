@@ -5,6 +5,7 @@ MODULE Collector
     VAR num i:=1;
     VAR intnum getAD;
     VAR intnum setAD;
+    VAR intnum getT;
     CONST num MAX_ARTICLE_DESCRIPTION_DATA:=5;
     VAR string filename:="home:/LastUsedArticles.txt";
     VAR string data{MAX_ARTICLE_DESCRIPTION_DATA}:=[" "," "," "," "," "];
@@ -45,7 +46,7 @@ MODULE Collector
     ! DEFINITIONS FOR CYCLETIME
     CONST num TOTAL_NUM_OF_CYCLES:=50;
     PERS bool bFirstCycle:=FALSE;
-    PERS num nCycleTime:=5.4;
+    PERS num nCycleTime:=9.012;
     PERS num cycleTimeMean{TOTAL_NUM_OF_CYCLES};
     VAR clock cCycleTime;
     VAR num nCycles;
@@ -82,7 +83,7 @@ MODULE Collector
 
 
     ! GLOBAL DEFINITIONS	
-    PERS num cntr:=13;
+    PERS num cntr:=7;
     VAR intnum getLog;
 
     !TODO Wertefehler, da am Ende ein Whitespace steht (5. Zeile)
@@ -99,6 +100,10 @@ MODULE Collector
             ! Write article data to socket
             tpWriteSocket actualProgName+"::"+actualProgId+"::"+actualProgNumber,":a:";
             WaitTime 0.5;
+            IF (DOutput(DOF_TESTSIGNAL)=1) THEN
+                robotPosition:=CPos(\Tool:=tool0\WObj:=wobj0);
+                tpWriteSocket ValToStr(robotPosition.x)+"::"+ValToStr(robotPosition.y)+"::"+ValToStr(robotPosition.z),":cd:";
+            ENDIF
         ENDWHILE
     ENDPROC
 
@@ -107,6 +112,14 @@ MODULE Collector
     ! --------------------------
     TRAP getArticleData
         tpWriteSocket actualProgName+"::"+ValToStr(nCyclesShow)+"::"+ValToStr(cycleTimeMean{1}),":a:";
+    ENDTRAP
+
+    ! --------------------------
+    ! ROUTINES FOR TESTING
+    ! --------------------------
+    TRAP getTest
+        robotPosition:=CPos(\Tool:=tool0\WObj:=wobj0);
+        tpWriteSocket ValToStr(robotPosition.x)+"::"+ValToStr(robotPosition.y)+"::"+ValToStr(robotPosition.z),":cd:";
     ENDTRAP
 
     ! --------------------------
@@ -410,6 +423,12 @@ MODULE Collector
 
         CONNECT getMD WITH getMachineData;
         ISignalDO DOF_MDpulser,1,getMD;
+
+        ! ----------------
+        ! Init test
+        ! ----------------   
+        CONNECT getT WITH getTest;
+        ISignalDO DOF_TestSignal,1,getT;
 
         ! ----------------
         ! Init event messages

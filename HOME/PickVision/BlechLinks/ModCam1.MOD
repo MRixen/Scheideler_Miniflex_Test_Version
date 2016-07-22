@@ -42,7 +42,7 @@ MODULE ModCam1
     PERS robtarget pDropNutDeep1:=[[60.56,23.14,38.65],[0.0551416,0.997082,0.00369827,-0.0526606],[0,-1,3,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     PERS robtarget pPickSim:=[[143.44,89.55,5.95],[0.0225651,0.931317,-0.0401836,-0.361281],[-2,0,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     PERS robtarget pPickSimCollision:=[[332.22,-9.37,41.54],[0.759158,0.622212,-0.113536,0.153752],[-2,-1,2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
-    PERS jointtarget pCollisionPos:=[[-90.5,55,20,-87,120,250],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    PERS jointtarget pCollisionPos:=[[-108.43,20.5591,-8.71406,-14.6646,76.5007,-17.0886],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
 
 
     !# -----------------------
@@ -66,7 +66,7 @@ MODULE ModCam1
     VAR num maxUnloadCycleCntr:=0;
     CONST num MAX_UNLOAD_CYCLES:=5;
     VAR num cd_simCounter:=1;
-    CONST num MAX_CD_SIM_COUNTER:=100;
+    CONST num MAX_CD_SIM_COUNTER:=2;
     !
     !# -----------------------
     !#--------String data
@@ -94,7 +94,9 @@ MODULE ModCam1
             PickCam_1;
             cd_simCounter:=cd_simCounter+1;
         ELSE
-            MoveAbsJ pCollisionPos, vmax, fine, tool0;
+!            MoveAbsJ pCollisionPos, vmax, fine, tool0;
+            PulseDO\PLength:=2,DOF_TestSignal;
+            WaitTime 5;
             !MoveJ pPickSimCollision,vmax,z5,tGripper\WObj:=wCamera1;
             cd_simCounter:=1;
         ENDIF
